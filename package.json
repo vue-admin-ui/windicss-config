@@ -1,6 +1,6 @@
 {
   "name": "@vue-admin-ui/windicss-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "windi.config.js",
   "dependencies": {
     "windicss": "^3.1.3"
