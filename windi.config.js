@@ -31,7 +31,18 @@ module.exports = {
           return Style(Utility.class, [
             Property('font-size', `${parsed}px`),
           ]);
-         }
+        }
+      });
+
+      addDynamic('font', ({ Utility, Style, Property }) => {
+        const value =  Utility.body.replace('family-', '')
+        const parsed = parseInt(value)
+        if (!value) return;
+        if (Utility.raw.startsWith('font-family-$')) {
+          return Style(Utility.class, [
+            Property('font-family', `var(--${value.replace('$', '')})`),
+          ]);
+        }
       });
     }),
     plugin(function({ addUtilities }) {
