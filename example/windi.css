@@ -1,0 +1,6 @@
+.font-size-12px {
+  font-size: 12px;
+}
+.line-clamp-none {
+  -webkit-line-clamp: unset;
+}
