@@ -6,9 +6,7 @@
     "example": "windicss 'example/*.html' -o example/windi.css -f windi.config.js"
   },
   "dependencies": {
-    "windicss": "^3.1.8"
-  },
-  "devDependencies": {
+    "windicss": "^3.1.8",
     "windicss-plugin-font-size": "git+https://github.com/idmytro/windicss-plugin-font-size.git"
   }
 }
