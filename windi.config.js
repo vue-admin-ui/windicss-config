@@ -11,34 +11,6 @@ module.exports = {
   },
   plugins: [
     require('windicss/plugin/line-clamp'),
-    plugin(function ({ addDynamic, addUtilities }) {
-      addUtilities({
-        '.font-size-0': {
-          fontSize: '0',
-        },
-      });
-
-      addDynamic('font', ({ Utility, Style, Property }) => {
-        const value =  Utility.body.replace('size-', '')
-        const parsed = parseInt(value)
-        if (!value) return;
-        if (Utility.raw.startsWith('font-size-$')) {
-          return Style(Utility.class, [
-            Property('font-size', `var(--${value.replace('$', '')})`),
-          ]);
-        }
-        if (Utility.raw.endsWith('px') && parsed) {
-          return Style(Utility.class, [
-            Property('font-size', `${parsed}px`),
-          ]);
-         }
-      });
-    }),
-    plugin(function({ addUtilities }) {
-      addUtilities({
-        '.transition-duration': {'transition-duration': 'var(--transition-duration)'},
-        '.transition-property-form-item': {'transition-property': 'var(--transition-property-form-item)'},
-      })
-    }),
+    require('windicss-plugin-font-size'),
   ],
 }
